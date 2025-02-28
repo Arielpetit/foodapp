@@ -22,12 +22,12 @@ const AdminPage = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://localhost:8080/api/restaurants', restaurantData, {
+      const response = await axios.post('https://d3c17qxn-8080.euw.devtunnels.ms/api/restaurants', restaurantData, {
         headers: {
           'Content-Type': 'application/json',
         },
       });
-
+//https://d3c17qxn-8080.euw.devtunnels.ms/
       if (response.status === 200) {
         alert('Restaurant added successfully!');
         setRestaurantData({

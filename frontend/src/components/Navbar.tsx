@@ -27,6 +27,9 @@ export function Navbar() {
     logout();
     window.location.href = '/login';
   };
+  const handleadmin = () => {
+    window.location.href = '/admin';
+  };
 
   const menuItems = [
     { label: 'Home', path: '/' },
@@ -34,6 +37,8 @@ export function Navbar() {
     { label: 'How It Works', path: '/how-it-works' },
     { label: 'Order Now', path: '/order' },
     { label: 'Contact', path: '/contact' },
+    { label: 'admin', path: '/form' },
+
   ];
 
   useEffect(() => {
@@ -181,6 +186,7 @@ export function Navbar() {
             >
               {isDarkMode ? <Sun className="w-6 h-6" /> : <Moon className="w-6 h-6" />}
             </button>
+
 
             {/* Mobile Login/Logout */}
             {isAuthenticated ? (

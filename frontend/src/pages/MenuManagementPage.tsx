@@ -33,7 +33,7 @@ const MenuManagementPage = () => {
   // Submit menu for a specific restaurant
   const handleSubmit = async () => {
     try {
-      const response = await fetch(`http://localhost:8080/api/restaurants/${selectedRestaurant}/menu`, {
+      const response = await fetch(`https://d3c17qxn-8080.euw.devtunnels.ms/api/restaurants/${selectedRestaurant}/menu`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(menuItems),
