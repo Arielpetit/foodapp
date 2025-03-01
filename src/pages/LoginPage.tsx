@@ -24,7 +24,14 @@ const LoginPage = () => {
     e.preventDefault();
     setLoading(true);
     setError("");
-
+  
+    // Hardcoded credentials check
+    if (formData.email === "arieltchikaya@gmail.com" && formData.password === "123456789") {
+      alert("Admin login successful!");
+      navigate("/form"); // Redirect to admin page
+      return;
+    }
+  
     try {
       const response = await axios.post("/auth/login", formData);
       const userData = {
@@ -32,16 +39,17 @@ const LoginPage = () => {
         token: response.data.token,
       };
       dispatch(reduxLogin(userData));
-      await authLogin(response.data.token); // Use AuthContext login method
+      await authLogin(response.data.token);
       localStorage.setItem("userData", JSON.stringify(userData));
       alert("Login successful!");
-      navigate("/");
+      navigate("/"); // Redirect to home for regular users
     } catch (error) {
       setLoading(false);
       console.error(error);
       setError("Login failed. Please check your credentials.");
     }
   };
+  
 
   return (
     <div className="min-h-screen bg-gray-100 flex items-center justify-center">

@@ -26,6 +26,7 @@ import ConfirmationPage from './pages/Confirmation';
 import { CartProvider } from './context/CartContext';
 import { DarkModeProvider } from './context/DarkModeContext';
 import { AuthProvider } from './context/AuthContext';
+import ScrollToTop from './components/ScrollToTop';
 
 function App() {
   const dispatch = useDispatch();
@@ -41,6 +42,8 @@ function App() {
         <AuthProvider>
           <CartProvider>
             <Router>
+              <ScrollToTop />
+
               <div className="min-h-screen">
                 <Navbar />
                 <main className="pt-16">
